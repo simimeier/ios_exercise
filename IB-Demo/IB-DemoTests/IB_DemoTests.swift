@@ -1,14 +1,14 @@
 //
-//  SW02Tests.swift
-//  SW02Tests
+//  IB_DemoTests.swift
+//  IB-DemoTests
 //
-//  Created by Simon Meier on 21.09.20.
+//  Created by Simon Meier on 22.09.20.
 //
 
 import XCTest
-@testable import SW02
+@testable import IB_Demo
 
-class SW02Tests: XCTestCase {
+class IB_DemoTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

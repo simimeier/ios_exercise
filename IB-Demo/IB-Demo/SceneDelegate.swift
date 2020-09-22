@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  SW02
+//  IB-Demo
 //
-//  Created by Simon Meier on 21.09.20.
+//  Created by Simon Meier on 22.09.20.
 //
 
 import UIKit
