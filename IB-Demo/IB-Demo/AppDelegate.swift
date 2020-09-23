@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  IB-Demo
+//  IB-DEMO
 //
 //  Created by Simon Meier on 22.09.20.
 //

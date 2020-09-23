@@ -1,13 +1,13 @@
 //
-//  IB_DemoUITests.swift
-//  IB-DemoUITests
+//  IB_DEMOUITests.swift
+//  IB-DEMOUITests
 //
 //  Created by Simon Meier on 22.09.20.
 //
 
 import XCTest
 
-class IB_DemoUITests: XCTestCase {
+class IB_DEMOUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
