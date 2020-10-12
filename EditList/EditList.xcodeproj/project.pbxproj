@@ -15,10 +15,11 @@
 		F41BEF85252DDDBB00CB05D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41BEF83252DDDBB00CB05D8 /* LaunchScreen.storyboard */; };
 		F41BEF90252DDDBC00CB05D8 /* EditListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BEF8F252DDDBC00CB05D8 /* EditListTests.swift */; };
 		F41BEF9B252DDDBC00CB05D8 /* EditListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BEF9A252DDDBC00CB05D8 /* EditListUITests.swift */; };
-		F41BEFB8252DE5C400CB05D8 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BEFB7252DE5C400CB05D8 /* DataProvider.swift */; };
-		F41BEFBD252DE5C800CB05D8 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BEFBC252DE5C800CB05D8 /* PersonData.swift */; };
 		F41BEFC8252DEC9B00CB05D8 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BEFC7252DEC9B00CB05D8 /* MasterTableViewController.swift */; };
 		F41BEFCD252DF0B600CB05D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BEFCC252DF0B600CB05D8 /* DetailViewController.swift */; };
+		F4C132442534B2220023B317 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C132432534B2220023B317 /* DataProvider.swift */; };
+		F4C132492534B24D0023B317 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C132482534B24D0023B317 /* Person.swift */; };
+		F4C132572534B5B00023B317 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C132562534B5B00023B317 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +54,11 @@
 		F41BEF96252DDDBC00CB05D8 /* EditListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EditListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41BEF9A252DDDBC00CB05D8 /* EditListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListUITests.swift; sourceTree = "<group>"; };
 		F41BEF9C252DDDBC00CB05D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F41BEFB7252DE5C400CB05D8 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataProvider.swift; path = "../../../../../50 ios_exercises-master/EditList/EditList/DataProvider/DataProvider.swift"; sourceTree = "<group>"; };
-		F41BEFBC252DE5C800CB05D8 /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonData.swift; path = "../../../../../50 ios_exercises-master/EditList/EditList/DataProvider/PersonData.swift"; sourceTree = "<group>"; };
 		F41BEFC7252DEC9B00CB05D8 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		F41BEFCC252DF0B600CB05D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F4C132432534B2220023B317 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataProvider.swift; path = EditList/DataProvider.swift; sourceTree = SOURCE_ROOT; };
+		F4C132482534B24D0023B317 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Person.swift; path = EditList/Person.swift; sourceTree = SOURCE_ROOT; };
+		F4C132562534B5B00023B317 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 		F41BEF77252DDDB900CB05D8 /* EditList */ = {
 			isa = PBXGroup;
 			children = (
-				F41BEFB6252DE5B500CB05D8 /* DataProvider */,
+				F4C132432534B2220023B317 /* DataProvider.swift */,
+				F4C132482534B24D0023B317 /* Person.swift */,
 				F41BEF78252DDDB900CB05D8 /* AppDelegate.swift */,
 				F41BEF7A252DDDB900CB05D8 /* SceneDelegate.swift */,
 				F41BEF7C252DDDB900CB05D8 /* ViewController.swift */,
@@ -117,6 +120,7 @@
 				F41BEF86252DDDBB00CB05D8 /* Info.plist */,
 				F41BEFC7252DEC9B00CB05D8 /* MasterTableViewController.swift */,
 				F41BEFCC252DF0B600CB05D8 /* DetailViewController.swift */,
+				F4C132562534B5B00023B317 /* EditViewController.swift */,
 			);
 			path = EditList;
 			sourceTree = "<group>";
@@ -137,15 +141,6 @@
 				F41BEF9C252DDDBC00CB05D8 /* Info.plist */,
 			);
 			path = EditListUITests;
-			sourceTree = "<group>";
-		};
-		F41BEFB6252DE5B500CB05D8 /* DataProvider */ = {
-			isa = PBXGroup;
-			children = (
-				F41BEFB7252DE5C400CB05D8 /* DataProvider.swift */,
-				F41BEFBC252DE5C800CB05D8 /* PersonData.swift */,
-			);
-			path = DataProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,12 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41BEFBD252DE5C800CB05D8 /* PersonData.swift in Sources */,
+				F4C132572534B5B00023B317 /* EditViewController.swift in Sources */,
 				F41BEFC8252DEC9B00CB05D8 /* MasterTableViewController.swift in Sources */,
+				F4C132442534B2220023B317 /* DataProvider.swift in Sources */,
 				F41BEF7D252DDDB900CB05D8 /* ViewController.swift in Sources */,
-				F41BEFB8252DE5C400CB05D8 /* DataProvider.swift in Sources */,
 				F41BEF79252DDDB900CB05D8 /* AppDelegate.swift in Sources */,
 				F41BEF7B252DDDB900CB05D8 /* SceneDelegate.swift in Sources */,
+				F4C132492534B24D0023B317 /* Person.swift in Sources */,
 				F41BEFCD252DF0B600CB05D8 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

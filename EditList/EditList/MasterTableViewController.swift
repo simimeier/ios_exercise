@@ -8,7 +8,7 @@
 import UIKit
 
 class MasterTableViewController: UITableViewController {
-    let dataProvider = DataProvider.sharedInstance
+    let dataProvider = DataProvider.shared.memberPersons
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,10 @@ class MasterTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            self.tableView.reloadData()
+        }
 
     // MARK: - Table view data source
 
@@ -31,16 +35,28 @@ class MasterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dataProvider.memberPersons.count
+        return self.dataProvider.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let data = dataProvider.memberPersons[indexPath.row]
-        cell.textLabel!.text = data.firstName + " " + data.lastName
-        return cell
         // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
+        let person = dataProvider[indexPath.row]
+        cell.textLabel?.text = "\(person.firstName) \(person.lastName)"
+        return cell
+    }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        let destVC = segue.destination as! DetailViewController
+        destVC.person = dataProvider[tableView.indexPathForSelectedRow?.row ?? 0]
+
     }
     
 
@@ -80,18 +96,7 @@ class MasterTableViewController: UITableViewController {
     */
 
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        let vc = segue.destination as? ViewController
-        let indexPath = self.tableView.indexPathForSelectedRow!
-        //vc?.navigationItem.
-        
-        
-    }
+    
     
 
 }

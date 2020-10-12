@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lastLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     
-    var personData: PersonData?
+    var person: Person?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,23 @@ class DetailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        firstLabel.text = personData!.firstName
-        lastLabel.text = personData!.lastName
-        codeLabel.text = String(personData!.plz)
+        self.firstLabel.text = person?.firstName
+        self.lastLabel.text = person?.lastName
+        self.codeLabel.text = String(person?.postalCode ?? 0000)
+        self.navigationItem.title = "\(person?.firstName ?? "new Person") \(person?.lastName ?? "")"
+        self.navigationItem.backBarButtonItem?.title = "Master View"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! EditViewController
+        destVC.person = self.person;
+    }
+        
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        self.viewWillAppear(false)
+    }
 
+    
     /*
     // MARK: - Navigation
 
