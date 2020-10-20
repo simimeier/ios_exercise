@@ -10,8 +10,40 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+   
 
-
+    /*func saveStringArray(_ array: [String]) {
+        let manager = FileManager.default
+        
+        let directories = manager.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        if let documentDirectory = directories.first {
+            let filePath = documentDirectory.appendingPathComponent("myStringArrayFile.dat")
+            print(filePath)
+    
+        
+        let myArray = ["Ein", "Zwei", "Drei"]
+        (myArray as NSArray).write(to: filePath)
+        if let readArray = NSArray(contentsOf: filePath) {
+            print(readArray)
+        }
+        
+    }
+    
+    
+    func loadStringArray() {
+        
+        return "";
+    }
+    
+    
+    func arrayFileURL() {
+        
+        return "URL"
+    }
+*/
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
