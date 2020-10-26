@@ -26,14 +26,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         self.picker.delegate = self
         self.picker.dataSource = self
-    
-        pickerData = dummyStrings;
-        loadListSync()
+        self.images = loadListSync()!
     }
     
     func loadListSync() -> [ImageInfo]? {
-        var tmpJSONStrings : [String]  = [];
-        
+        //var tmpJSONStrings : [String]  = [];
         
         let jsonURL = URL(string: "https://hslu.nitschi.ch/networking/data.json")
         
@@ -41,57 +38,53 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         let jsonDecoder = JSONDecoder()
         let responses = try! jsonDecoder.decode(Response.self, from: jsonData)
-        images = responses.images;
+        /*images = responses.images;
         for image in responses.images {
             tmpJSONStrings.append(image.title)
         }
 
         pickerData = tmpJSONStrings;
-        picker.reloadAllComponents()
+        picker.reloadAllComponents()*/
         
         
-        return nil
+        return responses.images
     }
 
     func loadImageSync(image: ImageInfo) -> UIImage? {
-        //let url = URL(string: image.url)
-        let data = try? Data(contentsOf: image.url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        imageView.image = UIImage(data: data!)
-        titleLabel.text = image.title
-        return nil;
+        let image = (try? Data(contentsOf: image.url))!
+        return UIImage(data: image)
     }
 
     func loadImageAsync(image: ImageInfo, completion: @escaping (UIImage?)->Void) {
-        //completion(true)
+        DispatchQueue.global(qos: .background).async {
+            let result = self.loadImageSync(image: image)
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
     
   
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // Number of columns of data
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        loadImageAsync(image: self.images[row], completion: {image in self.imageView.image = image})
+        titleLabel.text = images[row].title
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return images[row].title
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
         
-    // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // The data to return fopr the row and component (column) that's being passed in
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //loadImageSync(image: images[row])
-        
-        let myQueue = DispatchQueue(label: "ch.hslu.ios.MyQueue")
-        myQueue.async { self.loadImageSync(image: self.images[row]) }
-        
-        
-        
-        return pickerData[row]
+        return images.count
     }
     
 
